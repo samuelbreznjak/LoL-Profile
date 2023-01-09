@@ -487,7 +487,7 @@ export default function Summoner() {
                       }
                       {ready ? (handleZeroMatches()) : null}
 
-                      {error == 'flex' ? null : matchesinfo.map(match => {
+                      {error === 'flex' ? null : matchesinfo.map(match => {
                         // we are calculating match values 
 
                         let summonerIndex = match.metadata.participants.indexOf(puuid)
