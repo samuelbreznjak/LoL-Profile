@@ -32,7 +32,7 @@ export default function About() {
                     <p>When the user enters his username and region, the website fetches data from <a rel="noreferrer" target='_blank' href="https://developer.riotgames.com/">Riot API</a> and then displays the data.</p>
                     <p>You can also check top 300 players on each server and see which champions are currently in free rotation.</p>
                     <p>LoL Profile isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
-                    <a rel='noreferrer' target="_blank" href="https://github.com">Github</a>
+                    <a rel='noreferrer' target="_blank" href="https://github.com/samuelbreznjak/LoL-Profile">Github</a>
                 </div>
             </AboutSection>
         </Container>
