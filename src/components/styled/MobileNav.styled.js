@@ -11,7 +11,7 @@ export const StyledMobileNav  = styled.div`
         z-index: 100;
         display: grid;
         grid-template-rows: 10% 90%;
-        transition: all 0.5s;
+        transition: top 0.5s;
 
         &.active{
             top: 0;
