@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import { Container } from '../components/styled/Container.styled'
 import { LeaderboardSection } from '../components/styled/Leaderboard.styled'
@@ -7,6 +6,8 @@ import ErrorScreen from '../components/ErrorScreen'
 import { NavbarContext } from '../contexts/NavbarContext'
 import MobileNav from '../components/MobileNav'
 import { Helmet } from 'react-helmet'
+import LeaderboardPlayer from '../components/LeaderboardPlayer'
+import SkeletonPlayer from '../components/SkeletonPlayer'
 
 export default function Leaderboard() {
   const {isNavActive, setIsNavActive} = useContext(NavbarContext)
@@ -119,48 +120,23 @@ export default function Leaderboard() {
 
                             // players gets sorted by compare function, and we are calculating winrate
 
-                            return(
-                                <tr key={crypto.randomUUID()}>
-                                    <td key={crypto.randomUUID()}>{players.indexOf(player) + 1}</td>
-                                    <td key={crypto.randomUUID()}>
-                                        <Link className='link' to={`../summoner/${region}/${player.summonerName}`}> {player.summonerName}</Link>
-                                    </td>
-                                    <td key={crypto.randomUUID()}>{player.leaguePoints}</td>
-                                    <td key={crypto.randomUUID()}>
-                                        <div key={crypto.randomUUID()} className="winrate-container">
-                                            <div key={crypto.randomUUID()} className="winrate" style={{ gridTemplateColumns: `${winrate}% ${losepercent}%`}}>
-                                                <div key={crypto.randomUUID()} className="win">{player.wins}</div>
-                                                <div key={crypto.randomUUID()} className="lose">{player.losses}</div>
-                                            </div>
-                                            <div key={crypto.randomUUID()} className="wr">
-                                                <p key={crypto.randomUUID()}>{winrate}%</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                            return( 
+                                <LeaderboardPlayer
+                                    rank={players.indexOf(player) + 1}
+                                    link={`../summoner/${region}/${player.summonerName}`}
+                                    name={player.summonerName}
+                                    lp={player.leaguePoints}
+                                    winrate={winrate}
+                                    losepercent={losepercent}
+                                    wins={player.wins}
+                                    losses={player.losses}
+                                />
                             )
                         })}
 
                         {skeletonItems.map(skeleton => {
                             return(
-                                <tr className='skeleton' key={crypto.randomUUID()}>
-                                    <td key={crypto.randomUUID()}>#</td>
-                                    <td key={crypto.randomUUID()}>
-                                        <p className='summoner'>Summoner</p>
-                                    </td>
-                                    <td key={crypto.randomUUID()}>1000</td>
-                                    <td key={crypto.randomUUID()}>
-                                        <div key={crypto.randomUUID()} className="winrate-container">
-                                            <div key={crypto.randomUUID()} className="winrate" style={{ gridTemplateColumns: `50% 50%`}}>
-                                                <div key={crypto.randomUUID()} className="win">100</div>
-                                                <div key={crypto.randomUUID()} className="lose">100</div>
-                                            </div>
-                                            <div key={crypto.randomUUID()} className="wr">
-                                                <p key={crypto.randomUUID()}>50%</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <SkeletonPlayer />
                             )
                         })}
                     </tbody>
