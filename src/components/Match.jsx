@@ -99,12 +99,12 @@ if(match.info.participants[summonerIndex].deaths === 0){
 
                     <MatchPlayer 
                         match={match} region={region}
-                        championLink={championLink} index={3}
+                        championLink={championLink} index={2}
                     />
 
                     <MatchPlayer 
                         match={match} region={region}
-                        championLink={championLink} index={4}
+                        championLink={championLink} index={3}
                     />
 
                     <MatchPlayer 
