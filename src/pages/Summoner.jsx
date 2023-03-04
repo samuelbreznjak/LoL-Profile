@@ -269,12 +269,14 @@ export default function Summoner() {
                     ready={ready}
                     isRankNull={isSoloNull}
                     playerRankInfo={playerSoloInfo}
+                    queue={'solo'}
                   />
 
                   <Rank
                     ready={ready}
                     isRankNull={isFlexNull}
                     playerRankInfo={playerFlexInfo}
+                    queue={'flex'}
                   />
               </div>
 

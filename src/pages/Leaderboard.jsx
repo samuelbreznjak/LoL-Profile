@@ -136,7 +136,7 @@ export default function Leaderboard() {
 
                         {skeletonItems.map(skeleton => {
                             return(
-                                <SkeletonPlayer />
+                                <SkeletonPlayer key={crypto.randomUUID()} />
                             )
                         })}
                     </tbody>
